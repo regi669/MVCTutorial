@@ -34,11 +34,69 @@ public class CategoryController : Controller
         }
         if (ModelState.IsValid)
         {
-            _dbContext.Add(category);
+            _dbContext.Categories.Add(category);
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
         return View(category);
+    }
+    
+    public IActionResult Edit(int? id)
+    {
+        if (id is null || id == 0)
+        {
+            return NotFound("Category Not Found");
+        }
+
+        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        if (categoryFromDb is null)
+        {
+            return NotFound();
+        }
+        return View(categoryFromDb);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Edit(Category category)
+    {
+        if (ModelState.IsValid)
+        {
+            _dbContext.Categories.Update(category);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        return View(category);
+    }
+    
+    public IActionResult Delete(int? id)
+    {
+        if (id is null || id == 0)
+        {
+            return NotFound("Category Not Found");
+        }
+
+        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        if (categoryFromDb is null)
+        {
+            return NotFound();
+        }
+        return View(categoryFromDb);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeletePOST(int? id)
+    {
+        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        if (categoryFromDb is null)
+        {
+            return NotFound();
+        }
+        _dbContext.Categories.Remove(categoryFromDb);
+        _dbContext.SaveChanges();
+        return RedirectToAction("Index");
     }
 }
