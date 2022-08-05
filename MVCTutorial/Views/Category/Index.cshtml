@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVCTutorial.Entities.Category>
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "_Layout";
+}
+
+<h2>Category</h2>
+
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+    <tr>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Display Order
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td style="width: 50%">
+                    @category.Name
+                </td>
+                <td style="width: 30%">
+                    @category.DisplayOrder
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

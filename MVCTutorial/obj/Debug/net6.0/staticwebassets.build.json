@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hPXn5+Ep/yblSbj2akiHYe747yVnITH55VTcFBUTip0=",
+  "Hash": "cpTlrv6c65b/6onQGHWGihHY+slP87wyCmJrZorf7rA=",
   "Source": "MVCTutorial",
   "BasePath": "_content/MVCTutorial",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MVCTutorial.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\css\\Boostrap-solar.css",
+      "SourceId": "MVCTutorial",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\",
+      "BasePath": "_content/MVCTutorial",
+      "RelativePath": "css/Boostrap-solar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Boostrap-solar.css"
     },
     {
       "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\css\\site.css",
