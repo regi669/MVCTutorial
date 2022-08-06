@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Repository;
+using MVCTutorial.Repository.Implementation;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>
     (options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 

@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.DataAccess.Data;
 using MVCTutorial.Models;
+using MVCTutorial.Repository;
 
 
 namespace MVCTutorial.Controllers;
 
 public class CategoryController : Controller
 {
-    private readonly ApplicationDbContext _dbContext;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public CategoryController(ApplicationDbContext dbContext)
+    public CategoryController(IUnitOfWork unitOfWork)
     {
-        _dbContext = dbContext;
+        _unitOfWork = unitOfWork;
     }
     
     public IActionResult Index()
     {
-        IEnumerable<Category> categories = _dbContext.Categories.ToList();
+        IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
         return View(categories);
     }
     
@@ -35,8 +36,8 @@ public class CategoryController : Controller
         }
         if (ModelState.IsValid)
         {
-            _dbContext.Categories.Add(category);
-            _dbContext.SaveChanges();
+            _unitOfWork.Category.Add(category);
+            _unitOfWork.Save();
             TempData["success"] = "Category Created Successfully";
             return RedirectToAction("Index");
         }
@@ -51,7 +52,7 @@ public class CategoryController : Controller
             return NotFound("Category Not Found");
         }
 
-        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id);
         if (categoryFromDb is null)
         {
             return NotFound();
@@ -65,8 +66,8 @@ public class CategoryController : Controller
     {
         if (ModelState.IsValid)
         {
-            _dbContext.Categories.Update(category);
-            _dbContext.SaveChanges();
+            _unitOfWork.Category.Update(category);
+            _unitOfWork.Save();
             TempData["success"] = "Category Updated Successfully";
             return RedirectToAction("Index");
         }
@@ -81,7 +82,7 @@ public class CategoryController : Controller
             return NotFound("Category Not Found");
         }
 
-        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id);
         if (categoryFromDb is null)
         {
             return NotFound();
@@ -93,13 +94,13 @@ public class CategoryController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult DeletePOST(int? id)
     {
-        var categoryFromDb = _dbContext.Categories.SingleOrDefault(c => c.Id == id);
+        var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id);
         if (categoryFromDb is null)
         {
             return NotFound();
         }
-        _dbContext.Categories.Remove(categoryFromDb);
-        _dbContext.SaveChanges();
+        _unitOfWork.Category.Remove(categoryFromDb);
+        _unitOfWork.Save();
         TempData["success"] = "Category Deleted Successfully";
         return RedirectToAction("Index");
     }
