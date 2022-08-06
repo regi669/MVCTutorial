@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using MVCTutorial.Database;
+using MVCTutorial.DataAccess.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

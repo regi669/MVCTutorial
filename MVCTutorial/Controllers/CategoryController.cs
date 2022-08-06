@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCTutorial.Database;
-using MVCTutorial.Entities;
+using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Models;
+
 
 namespace MVCTutorial.Controllers;
 

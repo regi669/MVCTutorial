@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTutorial", "MVCTutorial\MVCTutorial.csproj", "{EF0F9101-4B2F-4BEB-A1A1-3049C95CEFB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTutorial.Models", "MVCTutorial.Models\MVCTutorial.Models.csproj", "{47E9443B-6F0D-42FC-88CA-D5B51B6C5D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTutorial.Utility", "MVCTutorial.Utility\MVCTutorial.Utility.csproj", "{DD5D20EE-3677-452B-BD01-7EE69F48FFC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{EF0F9101-4B2F-4BEB-A1A1-3049C95CEFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF0F9101-4B2F-4BEB-A1A1-3049C95CEFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF0F9101-4B2F-4BEB-A1A1-3049C95CEFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E9443B-6F0D-42FC-88CA-D5B51B6C5D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E9443B-6F0D-42FC-88CA-D5B51B6C5D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E9443B-6F0D-42FC-88CA-D5B51B6C5D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E9443B-6F0D-42FC-88CA-D5B51B6C5D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD5D20EE-3677-452B-BD01-7EE69F48FFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5D20EE-3677-452B-BD01-7EE69F48FFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5D20EE-3677-452B-BD01-7EE69F48FFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5D20EE-3677-452B-BD01-7EE69F48FFC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

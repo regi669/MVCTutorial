@@ -383,3 +383,7 @@ C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\tr\Microso
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\MVCTutorial.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.DataAccess.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.Models.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.DataAccess.pdb
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.Models.pdb

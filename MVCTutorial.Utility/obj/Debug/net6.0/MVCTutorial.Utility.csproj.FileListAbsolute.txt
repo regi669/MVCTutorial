@@ -1,0 +1,12 @@
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\bin\Debug\net6.0\MVCTutorial.Utility.deps.json
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\bin\Debug\net6.0\MVCTutorial.Utility.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\bin\Debug\net6.0\MVCTutorial.Utility.pdb
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.csproj.AssemblyReference.cache
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.AssemblyInfoInputs.cache
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.AssemblyInfo.cs
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.csproj.CoreCompileInputs.cache
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\refint\MVCTutorial.Utility.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\MVCTutorial.Utility.pdb
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial.Utility\obj\Debug\net6.0\ref\MVCTutorial.Utility.dll

@@ -855,6 +855,34 @@
             "rid": "win"
           }
         }
+      },
+      "MVCTutorial.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MVCTutorial.Models": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.13",
+          "Microsoft.EntityFrameworkCore": "6.0.7",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.7",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",
+          "Pomelo.EntityFrameworkCore.MySql": "6.0.2"
+        },
+        "compile": {
+          "bin/placeholder/MVCTutorial.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MVCTutorial.DataAccess.dll": {}
+        }
+      },
+      "MVCTutorial.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MVCTutorial.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MVCTutorial.Models.dll": {}
+        }
       }
     }
   },
@@ -2454,10 +2482,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MVCTutorial.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../MVCTutorial.DataAccess/MVCTutorial.DataAccess.csproj",
+      "msbuildProject": "../MVCTutorial.DataAccess/MVCTutorial.DataAccess.csproj"
+    },
+    "MVCTutorial.Models/1.0.0": {
+      "type": "project",
+      "path": "../MVCTutorial.Models/MVCTutorial.Models.csproj",
+      "msbuildProject": "../MVCTutorial.Models/MVCTutorial.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MVCTutorial.DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.13",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
@@ -2489,7 +2528,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.DataAccess\\MVCTutorial.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.DataAccess\\MVCTutorial.DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

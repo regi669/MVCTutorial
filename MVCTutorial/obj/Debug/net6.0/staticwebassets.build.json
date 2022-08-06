@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cpTlrv6c65b/6onQGHWGihHY+slP87wyCmJrZorf7rA=",
+  "Hash": "n5400eplOFbHBeaORli+632ddmdB5VhzrJHp6Dzmf0E=",
   "Source": "MVCTutorial",
   "BasePath": "_content/MVCTutorial",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MVCTutorial.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\css\\boostrap-flatly.css",
+      "SourceId": "MVCTutorial",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\",
+      "BasePath": "_content/MVCTutorial",
+      "RelativePath": "css/boostrap-flatly.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\boostrap-flatly.css"
     },
     {
       "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\css\\Boostrap-solar.css",
