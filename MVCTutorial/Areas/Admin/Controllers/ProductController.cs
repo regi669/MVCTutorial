@@ -91,46 +91,34 @@ public class ProductController : Controller
 
         return View(productVm);
     }
-
-    public IActionResult Delete(int? id)
-    {
-        if (id is null || id == 0)
-        {
-            return NotFound("Cover Type Not Found");
-        }
-
-        var productFromDb = _unitOfWork.Product.GetFirstOrDefault(c => c.Id == id);
-        if (productFromDb is null)
-        {
-            return NotFound();
-        }
-
-        return View(productFromDb);
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult DeletePOST(int? id)
-    {
-        var productFromDb = _unitOfWork.Product.GetFirstOrDefault(c => c.Id == id);
-        if (productFromDb is null)
-        {
-            return NotFound();
-        }
-
-        _unitOfWork.Product.Remove(productFromDb);
-        _unitOfWork.Save();
-        TempData["success"] = "Cover Type Deleted Successfully";
-        return RedirectToAction("Index");
-    }
-
+    
     #region API CALLS
-
     [HttpGet]
     public IActionResult GetAll()
     {
         var products = _unitOfWork.Product.GetAll("Category");
         return Json(new { data = products });
+    }
+    
+    [HttpDelete]
+    public IActionResult Delete(int? id)
+    {
+        var productFromDb = _unitOfWork.Product.GetFirstOrDefault(c => c.Id == id);
+        if (productFromDb is null)
+        {
+            return Json(new { success = false, message = "Error while deleting!" });
+        }
+        if (productFromDb.ImageUrl != null)
+        {
+            var oldImagePath = Path.Combine(_environment.WebRootPath, productFromDb.ImageUrl.TrimStart('\\'));
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
+            }
+        }
+        _unitOfWork.Product.Remove(productFromDb);
+        _unitOfWork.Save();
+        return Json(new { success = true, message = "Deleted Succesfully" });
     }
     #endregion
 }
