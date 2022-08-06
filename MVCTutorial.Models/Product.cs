@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace MVCTutorial.Models;
@@ -35,15 +36,17 @@ public class Product
     public double Price100 { get; set; }
 
     [ValidateNever]
-    public string ImageUrl { get; set; }
+    public string? ImageUrl { get; set; }
     
     [Required]
+    [DisplayName("Category")]
     public int CategoryId { get; set; }
 
     [ValidateNever]
     public Category Category { get; set; }
     
     [Required]
+    [DisplayName("Cover Type")]
     public int CoverTypeId { get; set; }
 
     [ValidateNever]

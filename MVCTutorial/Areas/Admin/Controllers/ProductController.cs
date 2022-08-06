@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVCTutorial.Models;
 using MVCTutorial.Models.ViewModels;
@@ -20,8 +19,7 @@ public class ProductController : Controller
 
     public IActionResult Index()
     {
-        IEnumerable<Product> products = _unitOfWork.Product.GetAll();
-        return View(products);
+        return View();
     }
 
     public IActionResult Upsert(int? id)
@@ -44,11 +42,7 @@ public class ProductController : Controller
         {
             return View(productVm);
         }
-        else
-        {
-            
-        }
-
+        productVm.Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
         return View(productVm);
     }
 
@@ -65,6 +59,14 @@ public class ProductController : Controller
                 var uploadPath = Path.Combine(wwwRootPath, @"images\products");
                 var extension = Path.GetExtension(file.FileName);
 
+                if (productVm.Product.ImageUrl != null)
+                {
+                    var oldImagePath = Path.Combine(wwwRootPath, productVm.Product.ImageUrl.TrimStart('\\'));
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
+                }
                 using (var fileStreams = new FileStream(Path.Combine(uploadPath, fileName+extension), FileMode.Create))
                 {
                     file.CopyTo(fileStreams);
@@ -72,9 +74,18 @@ public class ProductController : Controller
 
                 productVm.Product.ImageUrl = @"\images\products\" + fileName + extension;
             }
-            _unitOfWork.Product.Add(productVm.Product);
+
+            if (productVm.Product.Id == 0)
+            {
+                _unitOfWork.Product.Add(productVm.Product);
+                TempData["success"] = "Product created Successfully";
+            }
+            else
+            {
+                _unitOfWork.Product.Update(productVm.Product);
+                TempData["success"] = "Product updated Successfully";
+            }
             _unitOfWork.Save();
-            TempData["success"] = "Product created Successfully";
             return RedirectToAction("Index");
         }
 
@@ -112,4 +123,14 @@ public class ProductController : Controller
         TempData["success"] = "Cover Type Deleted Successfully";
         return RedirectToAction("Index");
     }
+
+    #region API CALLS
+
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        var products = _unitOfWork.Product.GetAll("Category");
+        return Json(new { data = products });
+    }
+    #endregion
 }

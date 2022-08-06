@@ -15,16 +15,30 @@ public class Repository<T> : IRepository<T> where T : class
         this.dbSet = _dbContext.Set<T>();
     }
     
-    public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
+    public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
     {
         IQueryable<T> query = dbSet;
         query = query.Where(filter);
+        if (includeProperties != null)
+        {
+            foreach (var includeProperty in includeProperties.Split(",", StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+        }
         return query.FirstOrDefault();
     }
 
-    public IEnumerable<T> GetAll()
+    public IEnumerable<T> GetAll(string? includeProperties = null)
     {
         IQueryable<T> query = dbSet;
+        if (includeProperties != null)
+        {
+            foreach (var includeProperty in includeProperties.Split(",", StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+        }
         return query.ToList();
     }
 
