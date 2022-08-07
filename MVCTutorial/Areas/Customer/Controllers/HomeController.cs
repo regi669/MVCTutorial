@@ -1,21 +1,36 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
+using MVCTutorial.Models.ViewModels;
+using MVCTutorial.Repository;
 
 namespace MVCTutorial.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
     {
         _logger = logger;
+        _unitOfWork = unitOfWork;
     }
 
     public IActionResult Index()
     {
-        return View();
+        IEnumerable<Product> products = _unitOfWork.Product.GetAll("Category,CoverType");
+        return View(products);
+    }
+
+    public IActionResult Details(int? id)
+    {
+        var cart = new ShoppingCart()
+        {
+            Product = _unitOfWork.Product.GetFirstOrDefault(p => p.Id == id, "Category,CoverType"),
+            Count = 1
+        };
+        return View(cart);
     }
 
     public IActionResult Privacy()
