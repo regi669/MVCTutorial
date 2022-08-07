@@ -36,10 +36,12 @@
         "dependencies": {
           "MVCTutorial.DataAccess": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.7",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.7",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.13",
           "Microsoft.EntityFrameworkCore": "6.0.7",
           "Microsoft.EntityFrameworkCore.Design": "6.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.7",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.7",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
           "Microsoft.AspNetCore.Antiforgery.Reference": "6.0.0.0",
@@ -141,7 +143,6 @@
           "Microsoft.Extensions.Features": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions.Reference": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Composite": "6.0.0.0",
-          "Microsoft.Extensions.FileProviders.Embedded": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Physical": "6.0.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "6.0.0.0",
           "Microsoft.Extensions.Hosting.Abstractions.Reference": "6.0.0.0",
@@ -485,7 +486,7 @@
       "Microsoft.AspNetCore.Http.Extensions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0",
           "Microsoft.Net.Http.Headers": "2.2.0",
           "System.Buffers": "4.5.0"
         }
@@ -508,6 +509,21 @@
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Identity.UI/6.0.7": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Embedded": "6.0.7",
+          "Microsoft.Extensions.Identity.Stores": "6.0.7"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll": {
+            "assemblyVersion": "6.0.7.0",
+            "fileVersion": "6.0.722.32205"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll": {}
         }
       },
       "Microsoft.AspNetCore.JsonPatch/2.2.0": {
@@ -544,7 +560,7 @@
           "Microsoft.AspNetCore.Routing.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.DependencyModel": "5.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "System.Diagnostics.DiagnosticSource": "6.0.0",
           "System.Threading.Tasks.Extensions": "4.5.4"
@@ -1590,6 +1606,11 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Tools/6.0.7": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "6.0.7"
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
@@ -1633,16 +1654,30 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+      "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Embedded/6.0.7": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.FileProviders.Embedded.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.722.32205"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.FileProviders.Embedded.dll": {}
         }
       },
       "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
         }
       },
@@ -3715,12 +3750,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.FileProviders.Embedded/6.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.FileProviders.Embedded.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.FileProviders.Physical/6.0.0.0": {
         "compile": {
           "Microsoft.Extensions.FileProviders.Physical.dll": {}
@@ -4987,6 +5016,13 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.7",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.6.0.7.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Identity.UI/6.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gSS54YqkAbfG1mQp0SB4fSmOqwSKaxL4kD9BkwrJ0ah8e5bH8+lzoHAMjZGOIZ/SpYhQKmeCkxxJUv6oy6LJcg==",
+      "path": "microsoft.aspnetcore.identity.ui/6.0.7",
+      "hashPath": "microsoft.aspnetcore.identity.ui.6.0.7.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.JsonPatch/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -5288,6 +5324,13 @@
       "path": "microsoft.entityframeworkcore.sqlserver/6.0.7",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.6.0.7.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Tools/6.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gdv70a73pXNYwvlo278uPFU4zo5Dnl5sB1eiAHyc7AUd3xeWueqx9ke9F4n1CHnEaB9h21x/c2waQAdMJqcYCQ==",
+      "path": "microsoft.entityframeworkcore.tools/6.0.7",
+      "hashPath": "microsoft.entityframeworkcore.tools.6.0.7.nupkg.sha512"
+    },
     "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -5330,12 +5373,19 @@
       "path": "microsoft.extensions.dependencymodel/5.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+    "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EcnaSsPTqx2MGnHrmWOD0ugbuuqVT8iICqSqPzi45V5/MA1LjUNb0kwgcxBGqizV1R+WeBK7/Gw25Jzkyk9bIw==",
-      "path": "microsoft.extensions.fileproviders.abstractions/2.2.0",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512"
+      "sha512": "sha512-0pd4/fho0gC12rQswaGQxbU34jOS1TPS8lZPpkFCH68ppQjHNHYle9iRuHeev1LhrJ94YPvzcRd8UmIuFk23Qw==",
+      "path": "microsoft.extensions.fileproviders.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Embedded/6.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VvVTvV/OTZ9U5CG0mhIcDODJPTODDzN9mNJAxw27sKUu1exT+qREeWmoGnH+b96kZMj0gDwqNw6c2If045dUXA==",
+      "path": "microsoft.extensions.fileproviders.embedded/6.0.7",
+      "hashPath": "microsoft.extensions.fileproviders.embedded.6.0.7.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",
@@ -6846,11 +6896,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.FileProviders.Composite/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.FileProviders.Embedded/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

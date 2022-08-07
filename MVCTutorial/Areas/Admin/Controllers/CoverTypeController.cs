@@ -4,6 +4,7 @@ using MVCTutorial.Repository;
 
 namespace MVCTutorial.Controllers;
 
+[Area("Admin")]
 public class CoverTypeController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;

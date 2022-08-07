@@ -6,6 +6,7 @@ using MVCTutorial.Repository;
 
 namespace MVCTutorial.Controllers;
 
+[Area("Admin")]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
