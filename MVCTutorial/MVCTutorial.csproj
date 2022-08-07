@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MVCTutorial.DataAccess\MVCTutorial.DataAccess.csproj" />
+      <ProjectReference Include="..\MVCTutorial.Utility\MVCTutorial.Utility.csproj" />
     </ItemGroup>
 
     <ItemGroup>

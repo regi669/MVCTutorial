@@ -35,6 +35,7 @@
       "MVCTutorial/1.0.0": {
         "dependencies": {
           "MVCTutorial.DataAccess": "1.0.0",
+          "MVCTutorial.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.7",
           "Microsoft.AspNetCore.Identity.UI": "6.0.7",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.13",
@@ -3155,6 +3156,17 @@
         },
         "compile": {
           "MVCTutorial.Models.dll": {}
+        }
+      },
+      "MVCTutorial.Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.7"
+        },
+        "runtime": {
+          "MVCTutorial.Utility.dll": {}
+        },
+        "compile": {
+          "MVCTutorial.Utility.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery.Reference/6.0.0.0": {
@@ -6402,6 +6414,11 @@
       "sha512": ""
     },
     "MVCTutorial.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MVCTutorial.Utility/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

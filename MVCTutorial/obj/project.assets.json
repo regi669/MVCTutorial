@@ -3745,6 +3745,19 @@
         "runtime": {
           "bin/placeholder/MVCTutorial.Models.dll": {}
         }
+      },
+      "MVCTutorial.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.7"
+        },
+        "compile": {
+          "bin/placeholder/MVCTutorial.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MVCTutorial.Utility.dll": {}
+        }
       }
     }
   },
@@ -11063,11 +11076,17 @@
       "type": "project",
       "path": "../MVCTutorial.Models/MVCTutorial.Models.csproj",
       "msbuildProject": "../MVCTutorial.Models/MVCTutorial.Models.csproj"
+    },
+    "MVCTutorial.Utility/1.0.0": {
+      "type": "project",
+      "path": "../MVCTutorial.Utility/MVCTutorial.Utility.csproj",
+      "msbuildProject": "../MVCTutorial.Utility/MVCTutorial.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "MVCTutorial.DataAccess >= 1.0.0",
+      "MVCTutorial.Utility >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.7",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.7",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.13",
@@ -11106,6 +11125,9 @@
           "projectReferences": {
             "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.DataAccess\\MVCTutorial.DataAccess.csproj": {
               "projectPath": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.DataAccess\\MVCTutorial.DataAccess.csproj"
+            },
+            "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.Utility\\MVCTutorial.Utility.csproj": {
+              "projectPath": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.Utility\\MVCTutorial.Utility.csproj"
             }
           }
         }
