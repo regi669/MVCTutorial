@@ -5,19 +5,19 @@ using MVCTutorial.Repository;
 namespace MVCTutorial.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class CoverTypeController : Controller
+public class CompanyController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public CoverTypeController(IUnitOfWork unitOfWork)
+    public CompanyController(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
     
     public IActionResult Index()
     {
-        IEnumerable<CoverType> coverTypes = _unitOfWork.CoverType.GetAll();
-        return View(coverTypes);
+        IEnumerable<Company> companies = _unitOfWork.Companies.GetAll();
+        return View(companies);
     }
     
     public IActionResult Create()
@@ -27,76 +27,76 @@ public class CoverTypeController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create(CoverType coverType)
+    public IActionResult Create(Company company)
     {
         if (ModelState.IsValid)
         {
-            _unitOfWork.CoverType.Add(coverType);
+            _unitOfWork.Companies.Add(company);
             _unitOfWork.Save();
-            TempData["success"] = "Cover Type Created Successfully";
+            TempData["success"] = "Company Created Successfully";
             return RedirectToAction("Index");
         }
 
-        return View(coverType);
+        return View(company);
     }
     
     public IActionResult Edit(int? id)
     {
         if (id is null || id == 0)
         {
-            return NotFound("Cover Type Not Found");
+            return NotFound("Company Type Not Found");
         }
 
-        var coverTypeFromDb = _unitOfWork.CoverType.GetFirstOrDefault(c => c.Id == id);
-        if (coverTypeFromDb is null)
+        var companyFromDb = _unitOfWork.Companies.GetFirstOrDefault(c => c.Id == id);
+        if (companyFromDb is null)
         {
             return NotFound();
         }
-        return View(coverTypeFromDb);
+        return View(companyFromDb);
     }
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(CoverType coverType)
+    public IActionResult Edit(Company company)
     {
         if (ModelState.IsValid)
         {
-            _unitOfWork.CoverType.Update(coverType);
+            _unitOfWork.Companies.Update(company);
             _unitOfWork.Save();
-            TempData["success"] = "Cover Type Updated Successfully";
+            TempData["success"] = "Company Updated Successfully";
             return RedirectToAction("Index");
         }
 
-        return View(coverType);
+        return View(company);
     }
     
     public IActionResult Delete(int? id)
     {
         if (id is null || id == 0)
         {
-            return NotFound("Cover Type Not Found");
+            return NotFound("Company Not Found");
         }
 
-        var coverTypeFromDb = _unitOfWork.CoverType.GetFirstOrDefault(c => c.Id == id);
-        if (coverTypeFromDb is null)
+        var companyFromDb = _unitOfWork.Companies.GetFirstOrDefault(c => c.Id == id);
+        if (companyFromDb is null)
         {
             return NotFound();
         }
-        return View(coverTypeFromDb);
+        return View(companyFromDb);
     }
     
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult DeletePOST(int? id)
     {
-        var coverTypeFromDb = _unitOfWork.CoverType.GetFirstOrDefault(c => c.Id == id);
-        if (coverTypeFromDb is null)
+        var companyFromDb = _unitOfWork.Companies.GetFirstOrDefault(c => c.Id == id);
+        if (companyFromDb is null)
         {
             return NotFound();
         }
-        _unitOfWork.CoverType.Remove(coverTypeFromDb);
+        _unitOfWork.Companies.Remove(companyFromDb);
         _unitOfWork.Save();
-        TempData["success"] = "Cover Type Deleted Successfully";
+        TempData["success"] = "Company Deleted Successfully";
         return RedirectToAction("Index");
     }
 }

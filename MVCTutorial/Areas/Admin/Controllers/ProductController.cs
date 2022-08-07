@@ -4,7 +4,7 @@ using MVCTutorial.Models;
 using MVCTutorial.Models.ViewModels;
 using MVCTutorial.Repository;
 
-namespace MVCTutorial.Controllers;
+namespace MVCTutorial.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class ProductController : Controller

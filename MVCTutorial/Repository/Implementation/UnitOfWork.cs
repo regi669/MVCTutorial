@@ -10,6 +10,8 @@ public class UnitOfWork : IUnitOfWork
     public ICoverTypeRepository CoverType { get; }
 
     public IProductRepository Product { get; }
+    
+    public ICompanyRepository Companies { get; }
 
     public UnitOfWork(ApplicationDbContext dbContext)
     {
@@ -17,6 +19,7 @@ public class UnitOfWork : IUnitOfWork
         Category = new CategoryRepository(_dbContext);
         CoverType = new CoverTypeRepository(_dbContext);
         Product = new ProductRepository(_dbContext);
+        Companies = new CompanyRepository(_dbContext);
     }
     
     public void Save()

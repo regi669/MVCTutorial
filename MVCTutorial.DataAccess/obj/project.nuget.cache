@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wqBXcMEiYT2ge6EYYDpg4eHrpA5yB8cmkBDr/xysV58v0F7GgyMqP+Ueh8LMayDVotrTMjkQamllL8+Y6b0RzQ==",
+  "dgSpecHash": "4VGVSAeHeTUz9V4ePuPhy+4Fhbk3KR8jq0Bw5JJfCMMGoQJ4jLOYlutSQhsDQ05Qf8Rp38mv8FdYiQ7gctdfQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial.DataAccess\\MVCTutorial.DataAccess.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,8 @@
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
-    "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
+    "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",
+    "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.7\\microsoft.aspnetcore.cryptography.keyderivation.6.0.7.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\2.2.0\\microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.abstractions\\2.2.0\\microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
@@ -55,6 +56,8 @@
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.7\\microsoft.extensions.identity.core.6.0.7.nupkg.sha512",
+    "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.7\\microsoft.extensions.identity.stores.6.0.7.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.localization\\2.2.0\\microsoft.extensions.localization.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\2.2.0\\microsoft.extensions.localization.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",

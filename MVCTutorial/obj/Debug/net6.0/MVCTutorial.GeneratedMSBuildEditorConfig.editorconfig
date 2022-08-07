@@ -51,6 +51,22 @@ build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcSG9tZVxQ
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Alsen/RiderProjects/MVCTutorial/MVCTutorial/Areas/Admin/Views/Company/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tcGFueVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alsen/RiderProjects/MVCTutorial/MVCTutorial/Areas/Admin/Views/Company/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tcGFueVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alsen/RiderProjects/MVCTutorial/MVCTutorial/Areas/Admin/Views/Company/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tcGFueVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alsen/RiderProjects/MVCTutorial/MVCTutorial/Areas/Admin/Views/Company/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tcGFueVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Alsen/RiderProjects/MVCTutorial/MVCTutorial/Areas/Admin/Views/CoverType/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ292ZXJUeXBlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
