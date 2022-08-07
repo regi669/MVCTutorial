@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Data;
 using MVCTutorial.Models;
 
 namespace MVCTutorial.Repository.Implementation;

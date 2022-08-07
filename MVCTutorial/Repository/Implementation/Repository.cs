@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Data;
 
 namespace MVCTutorial.Repository.Implementation;
 

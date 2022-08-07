@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Data;
 using MVCTutorial.Models;
 using MVCTutorial.Repository;
 

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MVCTutorial.DataAccess.Data;
+using MVCTutorial.Data;
 using MVCTutorial.Repository;
 using MVCTutorial.Repository.Implementation;
 

@@ -1,4 +1,4 @@
-﻿using MVCTutorial.DataAccess.Data;
+﻿using MVCTutorial.Data;
 
 namespace MVCTutorial.Repository.Implementation;
 
