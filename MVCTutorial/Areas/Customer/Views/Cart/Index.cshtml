@@ -1,0 +1,80 @@
+﻿@model MVCTutorial.Models.ViewModels.ShoppingCartVM
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "_Layout";
+}
+<form method="post">
+	<br />
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-dark text-light ml-0">
+				<div class="row">
+					<div class="col-6  pt-2">
+						<i class="fa fa-shopping-cart"></i> &nbsp;
+						Shopping Cart
+					</div>
+					<div class="col-6 text-end">
+						<a asp-action="Index" asp-controller="Home" class="btn btn-outline-info btn-sm">Continue Shopping</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-body">
+				@foreach (var cart in Model.ListCarts)
+				{
+					<div class="row">
+						<div class="d-none d-lg-block col-lg-1 text-center py-2">
+							<img src="@cart.Product.ImageUrl" class="rounded" width="100%"/>
+						</div>
+						<div class="col-12 col-lg-6 pt-md-3">
+							<h5><strong>@cart.Product.Title</strong></h5>
+							<p><small>@Html.Raw(cart.Product.Description)</small></p>
+						</div>
+						<div class="col-12  col-lg-5 text-center row">
+							<div class="col-4 text-md-right pt-4">
+								<h6><strong>@cart.Price.ToString("c") <span class="text-muted">x</span> @cart.Count </strong></h6>
+							</div>
+							<div class="col-6 col-sm-4 col-lg-6 pt-2">
+								<div class="w-75 btn-group" role="group">
+									<a class="btn btn-primary" asp-route-id="@cart.Id" asp-controller="Cart" asp-action="Plus">
+										<i class="bi bi-plus-square"></i>
+									</a> &nbsp;
+									<a class="btn btn-warning" asp-route-id="@cart.Id" asp-controller="Cart" asp-action="Minus">
+										<i class="bi bi-dash-square"></i>
+									</a>
+								</div>
+
+							</div>
+							<div class="col-2 col-sm-4 col-lg-2 text-right pt-2">
+								<a class="btn btn-danger" asp-route-id="@cart.Id" asp-controller="Cart" asp-action="Remove">
+									<i class="bi bi-trash-fill"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<hr/>
+				}
+				<div class="row">
+					<div class="col-12 col-md-6 offset-md-6 col-lg-4 offset-lg-8 pr-4">
+						<ul class="list-group">
+							<li class="list-group-item d-flex justify-content-between bg-light">
+								<span class="text-info"> Total (USD)</span>
+								<strong class="text-info">@Model.CartTotal.ToString("c")</strong>
+							</li>
+						</ul>
+					</div>
+				</div>
+				</div>
+			
+			<div class="card-footer">
+				<div class="card-footer row">
+					<div class="col-sm-12 col-lg-4 col-md-6 offset-lg-8 offset-md-6 ">
+						<a class="btn btn-success form-control" asp-action="Summary" >Summary</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+

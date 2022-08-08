@@ -22,7 +22,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        IEnumerable<Product> products = _unitOfWork.Product.GetAll("Category,CoverType");
+        IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties:"Category,CoverType");
         return View(products);
     }
 
