@@ -13,6 +13,9 @@ namespace MVCTutorial.Areas.Admin.Controllers;
 public class OrderController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
+    
+    [BindProperty]
+    public OrderVM OrderVM { get; set; }
 
     public OrderController(IUnitOfWork unitOfWork)
     {
@@ -22,6 +25,42 @@ public class OrderController : Controller
     public IActionResult Index()
     {
         return View();
+    }
+    
+    public IActionResult Details(int orderId)
+    {
+        OrderVM = new OrderVM()
+        {
+            OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(filter:u=>u.Id==orderId, includeProperties:"ApplicationUser"),
+            OrderDetails = _unitOfWork.OrderDetail.GetAll(u=>u.OrderId==orderId, includeProperties:"Product")
+        };
+        return View(OrderVM);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult UpdateOrderDetail()
+    {
+        var orderHeaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
+        orderHeaderFromDb.Name = OrderVM.OrderHeader.Name;
+        orderHeaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
+        orderHeaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
+        orderHeaderFromDb.City = OrderVM.OrderHeader.City;
+        orderHeaderFromDb.State = OrderVM.OrderHeader.State;
+        orderHeaderFromDb.PostalCode = OrderVM.OrderHeader.PostalCode;
+        if (OrderVM.OrderHeader.Carrier != null)
+        {
+            orderHeaderFromDb.Carrier = OrderVM.OrderHeader.Carrier;
+        }
+        if (OrderVM.OrderHeader.TrackingNumber != null)
+        {
+            orderHeaderFromDb.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
+        }
+        _unitOfWork.OrderHeader.Update(orderHeaderFromDb);
+        _unitOfWork.Save();
+        
+        TempData["Success"] = "Order Details Updated Successfully.";
+        return RedirectToAction("Details", new { orderId = orderHeaderFromDb.Id });
     }
 
 
