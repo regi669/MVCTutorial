@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
 using MVCTutorial.Repository;
@@ -7,6 +9,7 @@ using MVCTutorial.Utility;
 namespace MVCTutorial.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize]
 public class OrderController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -15,18 +18,31 @@ public class OrderController : Controller
     {
         _unitOfWork = unitOfWork;
     }
+
     public IActionResult Index()
     {
         return View();
     }
-    
-    
+
+
     #region API CALLS
+
     [HttpGet]
     public IActionResult GetAll(string? status)
     {
         IEnumerable<OrderHeader> orderHeaders;
-        orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties:"ApplicationUser");
+        if (User.IsInRole(Util.ROLE_ADMIN) || User.IsInRole(Util.ROLE_EMPLOYEE))
+        {
+            orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+        }
+        else
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            orderHeaders = _unitOfWork.OrderHeader.GetAll(filter: u => u.ApplicationUserId == claim.Value,
+                includeProperties: "ApplicationUser");
+        }
+
         switch (status)
         {
             case "pending":
@@ -42,7 +58,9 @@ public class OrderController : Controller
                 orderHeaders = orderHeaders.Where(u => u.OrderStatus == Util.StatusApproved);
                 break;
         }
+
         return Json(new { data = orderHeaders });
     }
+
     #endregion
 }
