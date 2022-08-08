@@ -1,4 +1,7 @@
 ﻿@model MVCTutorial.Models.ViewModels.ShoppingCartVM
+@using Microsoft.Extensions.Options
+@using MVCTutorial.Utility
+@inject IOptions<StripeSettings> Stripe
 
 @{
     ViewBag.Title = "Summary";

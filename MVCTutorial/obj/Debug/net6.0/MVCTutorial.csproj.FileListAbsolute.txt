@@ -563,3 +563,4 @@ C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Microsoft.
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.Utility.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MVCTutorial.Utility.pdb
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Stripe.net.dll

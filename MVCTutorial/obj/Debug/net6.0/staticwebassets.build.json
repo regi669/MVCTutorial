@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Tq83sJtZOTmIoFmuH53Gs4uVKOyEFhFsrSSXsDIEsvw=",
+  "Hash": "3CcsopXY/GITsqsGW9iHZoC3+2OESE8d8Gp4k2TBiH4=",
   "Source": "MVCTutorial",
   "BasePath": "_content/MVCTutorial",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\images\\lawn_leaf.jpg",
+      "SourceId": "MVCTutorial",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\",
+      "BasePath": "_content/MVCTutorial",
+      "RelativePath": "images/lawn_leaf.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\lawn_leaf.jpg"
     },
     {
       "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\images\\products\\1fdcdd86-1e69-4da0-a58d-e0075e2147c8.png",

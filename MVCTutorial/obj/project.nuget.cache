@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bIt06+ppGFrknWhSN0/mVKMWmHR95nmFpiEAlIL5P/+LlwRFk/EAds9ocwiibUvKLGZNb8S2u1Xw3rSAiqv9ig==",
+  "dgSpecHash": "nDf3iKYzQc7L0DYtqETWfNFRxlasKM1fFquvkoIHfSjVHZWVdXHRtA8sj8XUu7uD4YXpYUcjdVPGtFkI44Bk1g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\MVCTutorial.csproj",
   "expectedPackageFiles": [
@@ -141,6 +141,7 @@
     "C:\\Users\\Alsen\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\Alsen\\.nuget\\packages\\stripe.net\\39.126.0\\stripe.net.39.126.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Alsen\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
