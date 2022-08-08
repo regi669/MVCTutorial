@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
 using MVCTutorial.Repository;
 using MVCTutorial.Utility;
+using Stripe;
+using Stripe.Checkout;
 
 namespace MVCTutorial.Areas.Admin.Controllers;
 
@@ -37,11 +39,76 @@ public class OrderController : Controller
         return View(OrderVM);
     }
     
+    [ActionName("Details")]
     [HttpPost]
     [ValidateAntiForgeryToken]
+    public IActionResult DetailsPayNow()
+    {
+        OrderVM.OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(filter: u => u.Id == OrderVM.OrderHeader.Id,
+            includeProperties: "ApplicationUser");
+        OrderVM.OrderDetails =
+            _unitOfWork.OrderDetail.GetAll(u => u.OrderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
+        
+        var domain = "https://localhost:8080/";
+        var options = new SessionCreateOptions
+        {
+            LineItems = new List<SessionLineItemOptions>(),
+            Mode = "payment",
+            SuccessUrl = domain + $"admin/order/PaymentConfirmation?orderHeaderId={OrderVM.OrderHeader.Id}",
+            CancelUrl = domain + $"admin/order/details?orderId={OrderVM.OrderHeader.Id}",
+        };
+        foreach (OrderDetail detail in OrderVM.OrderDetails)
+        {
+            var sessionLimeItem = new SessionLineItemOptions
+            {
+                PriceData = new SessionLineItemPriceDataOptions
+                {
+                    UnitAmount = (long)(detail.Price * 100),
+                    Currency = "usd",
+                    ProductData = new SessionLineItemPriceDataProductDataOptions
+                    {
+                        Name = detail.Product.Title,
+                    },
+
+                },
+                Quantity = detail.Count,
+            };
+            options.LineItems.Add(sessionLimeItem);
+        }
+
+        var service = new SessionService();
+        Session session = service.Create(options);
+
+        _unitOfWork.OrderHeader.UpdateStripePaymentId(OrderVM.OrderHeader.Id, session.Id,
+            session.PaymentIntentId);
+        _unitOfWork.Save();
+
+        Response.Headers.Add("Location", session.Url);
+        return new StatusCodeResult(303);
+    }
+    
+    public IActionResult PaymentConfirmation(int orderHeaderId)
+    {
+        OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(o => o.Id == orderHeaderId);
+        if (orderHeader.PaymentStatus == Util.PaymentStatusDelayedPayment)
+        {
+            var service = new SessionService();
+            Session session = service.Get(orderHeader.SessionId);
+            if (session.PaymentStatus.ToLower() == "paid")
+            {
+                _unitOfWork.OrderHeader.UpdateStatus(orderHeaderId, orderHeader.OrderStatus, Util.PaymentStatusApproved);
+                _unitOfWork.Save();
+            }
+        }
+        return View(orderHeaderId);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = Util.ROLE_ADMIN + "," + Util.ROLE_EMPLOYEE)]
     public IActionResult UpdateOrderDetail()
     {
-        var orderHeaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
+        var orderHeaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked:false);
         orderHeaderFromDb.Name = OrderVM.OrderHeader.Name;
         orderHeaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
         orderHeaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
@@ -61,6 +128,67 @@ public class OrderController : Controller
         
         TempData["Success"] = "Order Details Updated Successfully.";
         return RedirectToAction("Details", new { orderId = orderHeaderFromDb.Id });
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = Util.ROLE_ADMIN + "," + Util.ROLE_EMPLOYEE)]
+    public IActionResult StartProcessing()
+    {
+        _unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, Util.StatusInProcess);
+        _unitOfWork.Save();
+        
+        TempData["Success"] = "Order Status Updated Successfully.";
+        return RedirectToAction("Details", new { orderId = OrderVM.OrderHeader.Id });
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = Util.ROLE_ADMIN + "," + Util.ROLE_EMPLOYEE)]
+    public IActionResult ShipOrder()
+    {
+        var orderHeaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked:false);
+        orderHeaderFromDb.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
+        orderHeaderFromDb.Carrier = OrderVM.OrderHeader.Carrier;
+        orderHeaderFromDb.OrderStatus = Util.StatusShipped;
+        orderHeaderFromDb.ShippingDate = DateTime.Now;
+        if (orderHeaderFromDb.PaymentStatus == Util.PaymentStatusDelayedPayment)
+        {
+            orderHeaderFromDb.PaymentDueDate = DateTime.Now.AddDays(30);
+        }
+        _unitOfWork.OrderHeader.Update(orderHeaderFromDb);
+        _unitOfWork.Save();
+        
+        TempData["Success"] = "Order Shipped Successfully.";
+        return RedirectToAction("Details", new { orderId = OrderVM.OrderHeader.Id });
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = Util.ROLE_ADMIN + "," + Util.ROLE_EMPLOYEE)]
+    public IActionResult CancelOrder()
+    {
+        var orderHeaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked:false);
+        if (orderHeaderFromDb.PaymentStatus == Util.StatusApproved)
+        {
+            var options = new RefundCreateOptions()
+            {
+                Reason = RefundReasons.RequestedByCustomer,
+                PaymentIntent = orderHeaderFromDb.PaymentIntentId
+            };
+            
+            var service = new RefundService();
+            Refund refund = service.Create(options);
+            _unitOfWork.OrderHeader.UpdateStatus(orderHeaderFromDb.Id, Util.StatusCancelled, Util.StatusRefunded);
+        }
+        else
+        {
+            _unitOfWork.OrderHeader.UpdateStatus(orderHeaderFromDb.Id, Util.StatusCancelled, Util.StatusCancelled);
+        }
+        _unitOfWork.Save();
+        
+        TempData["Success"] = "Order Canceled Successfully.";
+        return RedirectToAction("Details", new { orderId = OrderVM.OrderHeader.Id });
     }
 
 
