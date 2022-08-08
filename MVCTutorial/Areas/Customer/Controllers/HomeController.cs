@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
 using MVCTutorial.Models.ViewModels;
@@ -24,14 +26,28 @@ public class HomeController : Controller
         return View(products);
     }
 
-    public IActionResult Details(int? id)
+    public IActionResult Details(int productId)
     {
         var cart = new ShoppingCart()
         {
-            Product = _unitOfWork.Product.GetFirstOrDefault(p => p.Id == id, "Category,CoverType"),
-            Count = 1
+            Product = _unitOfWork.Product.GetFirstOrDefault(p => p.Id == productId, "Category,CoverType"),
+            Count = 1,
+            ProductId = productId
         };
         return View(cart);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize]
+    public IActionResult Details(ShoppingCart cart)
+    {
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        cart.ApplicationUserId = claim.Value;
+        _unitOfWork.ShoppingCart.Add(cart);
+        _unitOfWork.Save();
+        return RedirectToAction(nameof(Index));
     }
 
     public IActionResult Privacy()
