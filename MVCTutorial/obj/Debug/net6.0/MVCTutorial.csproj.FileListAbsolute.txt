@@ -567,3 +567,4 @@ C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Stripe.net
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MailKit.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MimeKit.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
