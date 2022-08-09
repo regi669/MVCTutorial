@@ -128,13 +128,13 @@ namespace MVCTutorial.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            if (!_roleManager.RoleExistsAsync(Util.ROLE_ADMIN).GetAwaiter().GetResult())
-            {
-                _roleManager.CreateAsync(new IdentityRole(Util.ROLE_ADMIN)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(Util.ROLE_EMPLOYEE)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(Util.ROLE_USER_COMP)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(Util.ROLE_USER_INDI)).GetAwaiter().GetResult();
-            }
+            // if (!_roleManager.RoleExistsAsync(Util.ROLE_ADMIN).GetAwaiter().GetResult())
+            // {
+            //     _roleManager.CreateAsync(new IdentityRole(Util.ROLE_ADMIN)).GetAwaiter().GetResult();
+            //     _roleManager.CreateAsync(new IdentityRole(Util.ROLE_EMPLOYEE)).GetAwaiter().GetResult();
+            //     _roleManager.CreateAsync(new IdentityRole(Util.ROLE_USER_COMP)).GetAwaiter().GetResult();
+            //     _roleManager.CreateAsync(new IdentityRole(Util.ROLE_USER_INDI)).GetAwaiter().GetResult();
+            // }
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             Input = new InputModel()
