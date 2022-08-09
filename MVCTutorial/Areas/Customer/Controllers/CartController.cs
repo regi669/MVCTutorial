@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
 using MVCTutorial.Models.ViewModels;
@@ -14,12 +15,15 @@ namespace MVCTutorial.Areas.Customer.Controllers;
 public class CartController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IEmailSender _emailSender;
+
     [BindProperty]
     public ShoppingCartVM ShoppingCartVm { get; set; }
 
-    public CartController(IUnitOfWork unitOfWork)
+    public CartController(IUnitOfWork unitOfWork, IEmailSender emailSender)
     {
         _unitOfWork = unitOfWork;
+        _emailSender = emailSender;
     }
 
     public IActionResult Index()
@@ -156,7 +160,7 @@ public class CartController : Controller
 
     public IActionResult OrderConfirmation(int id)
     {
-        OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(o => o.Id == id);
+        OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(o => o.Id == id, includeProperties:"ApplicationUser");
         if (orderHeader.PaymentStatus != Util.PaymentStatusDelayedPayment)
         {
             var service = new SessionService();
@@ -167,7 +171,9 @@ public class CartController : Controller
                 _unitOfWork.Save();
             }
         }
-        
+
+        _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "Order Confirmation",
+            "<p>New Order Created!</p>");
         List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart
             .GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
         _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
