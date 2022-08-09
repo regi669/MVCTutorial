@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVCTutorial.Models;
 using MVCTutorial.Models.ViewModels;
 using MVCTutorial.Repository;
+using MVCTutorial.Utility;
 
 namespace MVCTutorial.Controllers;
 
@@ -51,12 +52,15 @@ public class HomeController : Controller
         if (cartFromDb is null)
         {
             _unitOfWork.ShoppingCart.Add(cart);
+            _unitOfWork.Save();
+            var numberOfItems = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Count();
+            HttpContext.Session.SetInt32(Util.SessionCart, numberOfItems);
         }
         else
         {
             _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, cart.Count);
+            _unitOfWork.Save();
         }
-        _unitOfWork.Save();
         return RedirectToAction(nameof(Index));
     }
 

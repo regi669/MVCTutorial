@@ -196,6 +196,8 @@ public class CartController : Controller
         if (cart.Count < 1)
         {
             _unitOfWork.ShoppingCart.Remove(cart);
+            var numberOfItems = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Count() -1;
+            HttpContext.Session.SetInt32(Util.SessionCart, numberOfItems);
         }
         _unitOfWork.Save();
         return RedirectToAction(nameof(Index));
@@ -206,6 +208,8 @@ public class CartController : Controller
         var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault(u => u.Id == id);
         _unitOfWork.ShoppingCart.Remove(cart);
         _unitOfWork.Save();
+        var numberOfItems = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Count();
+        HttpContext.Session.SetInt32(Util.SessionCart, numberOfItems);
         return RedirectToAction(nameof(Index));
     }
 
