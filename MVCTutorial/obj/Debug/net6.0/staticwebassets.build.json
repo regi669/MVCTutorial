@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2YX3DSqJeayue1YI5ZXZw3KrMwu5f8Ki7LQ2gpqBtWY=",
+  "Hash": "gaJnAwHpa/VSBRWZNF985HudZZBjvNeQKjQt7GJBtYs=",
   "Source": "MVCTutorial",
   "BasePath": "_content/MVCTutorial",
   "Mode": "Default",
@@ -1205,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\3599cdb5-4f6f-4cdb-82c7-b749065f69dc.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\images\\products\\ed999ace-7420-4562-8090-0df7c5eeedb2.jpg",
+      "SourceId": "MVCTutorial",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\",
+      "BasePath": "_content/MVCTutorial",
+      "RelativePath": "images/products/ed999ace-7420-4562-8090-0df7c5eeedb2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\ed999ace-7420-4562-8090-0df7c5eeedb2.jpg"
     },
     {
       "Identity": "C:\\Users\\Alsen\\RiderProjects\\MVCTutorial\\MVCTutorial\\wwwroot\\js\\order.js",
