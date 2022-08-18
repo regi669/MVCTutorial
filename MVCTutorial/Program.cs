@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using MVCTutorial.Data;
 using MVCTutorial.Repository;
@@ -50,7 +51,22 @@ builder.Services.AddAuthentication().AddFacebook(options =>
     options.AppSecret = builder.Configuration.GetSection("FacebookConfig:AppSecret").Get<string>();
 });
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddMvc()
+    .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
+
 var app = builder.Build();
+
+var cultures = new List<CultureInfo> {
+    new CultureInfo("en"),
+    new CultureInfo("pl")
+};
+app.UseRequestLocalization(options => {
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+    options.SupportedCultures = cultures;
+    options.SupportedUICultures = cultures;
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

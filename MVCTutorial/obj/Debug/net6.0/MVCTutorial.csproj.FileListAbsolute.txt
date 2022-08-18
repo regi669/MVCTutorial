@@ -568,3 +568,12 @@ C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MailKit.dl
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\MimeKit.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\en\MVCTutorial.resources.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\bin\Debug\net6.0\pl\MVCTutorial.resources.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\MVCTutorial.Resources.Areas.Customer.Views.Home.Index.en.resources
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\MVCTutorial.Resources.Areas.Customer.Views.Home.Index.pl.resources
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\MVCTutorial.csproj.GenerateResource.cache
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\en\MVCTutorial.resources.cs
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\en\MVCTutorial.resources.dll
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\pl\MVCTutorial.resources.cs
+C:\Users\Alsen\RiderProjects\MVCTutorial\MVCTutorial\obj\Debug\net6.0\pl\MVCTutorial.resources.dll

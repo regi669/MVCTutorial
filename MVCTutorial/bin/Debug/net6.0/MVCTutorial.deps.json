@@ -336,6 +336,14 @@
         "runtime": {
           "MVCTutorial.dll": {}
         },
+        "resources": {
+          "en/MVCTutorial.resources.dll": {
+            "locale": "en"
+          },
+          "pl/MVCTutorial.resources.dll": {
+            "locale": "pl"
+          }
+        },
         "compile": {
           "MVCTutorial.dll": {}
         }
