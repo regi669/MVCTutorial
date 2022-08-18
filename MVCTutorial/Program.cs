@@ -5,6 +5,7 @@ using MVCTutorial.Repository;
 using MVCTutorial.Repository.Implementation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Options;
 using MVCTutorial.Data.Dbinitializer;
 using MVCTutorial.Data.Dbinitializer.Implementation;
 using MVCTutorial.Utility;
@@ -55,18 +56,30 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 builder.Services.AddMvc()
     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
-
-var app = builder.Build();
-
-var cultures = new List<CultureInfo> {
-    new CultureInfo("en"),
-    new CultureInfo("pl")
-};
-app.UseRequestLocalization(options => {
+builder.Services.Configure<RequestLocalizationOptions>(options=>
+{
+    var cultures = new List<CultureInfo> {
+        new CultureInfo("en"),
+        new CultureInfo("pl")
+    };
     options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
     options.SupportedCultures = cultures;
     options.SupportedUICultures = cultures;
 });
+
+var app = builder.Build();
+
+// var cultures = new List<CultureInfo> {
+//     new CultureInfo("en"),
+//     new CultureInfo("pl")
+// };
+// app.UseRequestLocalization(options => {
+//     options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+//     options.SupportedCultures = cultures;
+//     options.SupportedUICultures = cultures;
+// });
+
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
